@@ -1,4 +1,17 @@
+<?php
+require_once("Database.php");
+$database = new Database();
+$db = $database->getConnection();
+
+if ($db->connect_errno) {
+    echo "Échec de la connexion à la base de données : " . $db->connect_error;
+} else {
+    echo "Connexion à la base de données réussie.";
+}
+
+?>
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
