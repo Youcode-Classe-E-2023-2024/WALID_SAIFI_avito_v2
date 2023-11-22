@@ -21,3 +21,7 @@ CREATE TABLE users (
     id_role INT NOT NULL,
     FOREIGN KEY (id_role) REFERENCES roles(id_role)
 );
+INSERT INTO roles (role) VALUES ('admin');
+INSERT INTO roles (role) VALUES ('annonceur');
+INSERT INTO roles (role) VALUES ('client');
+
