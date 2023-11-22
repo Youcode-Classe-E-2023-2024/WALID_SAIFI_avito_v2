@@ -1,3 +1,5 @@
+CREATE DATABASE DB_anonce;
+
 CREATE TABLE annonces (
     id_annonce INT AUTO_INCREMENT PRIMARY KEY,
     titre VARCHAR(255) NOT NULL,
@@ -21,7 +23,13 @@ CREATE TABLE users (
     id_role INT NOT NULL,
     FOREIGN KEY (id_role) REFERENCES roles(id_role)
 );
+
+
 INSERT INTO roles (role) VALUES ('admin');
 INSERT INTO roles (role) VALUES ('annonceur');
 INSERT INTO roles (role) VALUES ('client');
+INSERT INTO users (username, password, id_role) VALUES ('md@2018', '123', 1);
 
+SELECT users.user_id, users.username, users.password, roles.role
+FROM users JOIN roles ON 
+users.id_role = roles.id_role;
