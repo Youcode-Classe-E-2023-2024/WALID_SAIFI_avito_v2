@@ -1,28 +1,51 @@
 <?php
 include 'Database.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-session_start(); 
+    session_start(); 
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if (isset($username)  &&  isset($password)) {
+    if (isset($username) && isset($password)) {
         $db = new Database();
         $conn = $db->getConnection();
         $username = mysqli_real_escape_string($conn, $username);
         $password = mysqli_real_escape_string($conn, $password);
-        $query = "SELECT * FROM users WHERE username='$username' AND password='$password'" ;
+
+        $query = "SELECT users.user_id, users.username, users.password, roles.role
+                  FROM users 
+                  JOIN roles ON users.id_role = roles.id_role 
+                  WHERE username='$username' AND password='$password'";
         $result = $conn->query($query);
+
         if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
             $_SESSION['username'] = $username;
-            header("Location: dashboard.php"); 
+            $_SESSION['role'] = $row['role'];
+
+            switch ($row['role']) {
+                case 'admin':
+                    header("Location: admin.php");
+                    break;
+                case 'advertiser':
+                    header("Location: advertiser.php");
+                    break;
+                case 'client':
+                    header("Location: client.php");
+                    break;
+                default:
+                    header("Location: login.php");
+                    break;
+            }
+
+            exit(); 
         } else {
-            //echo "Identifiants incorrects.";
         }
 
         $conn->close();
     }
 }
-
 ?>
+
 
 
 <!DOCTYPE html>
