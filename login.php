@@ -1,3 +1,28 @@
+<?php
+include 'Database.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+session_start(); 
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    if (isset($username)  &&  isset($password)) {
+        $db = new Database();
+        $conn = $db->getConnection();
+        $username = mysqli_real_escape_string($conn, $username);
+        $password = mysqli_real_escape_string($conn, $password);
+        $query = "SELECT * FROM users WHERE username='$username' AND password='$password'" ;
+        $result = $conn->query($query);
+        if ($result->num_rows > 0) {
+            $_SESSION['username'] = $username;
+            header("Location: dashboard.php"); 
+        } else {
+            //echo "Identifiants incorrects.";
+        }
+
+        $conn->close();
+    }
+}
+
+?>
 
 
 <!DOCTYPE html>
@@ -14,7 +39,7 @@
 
     <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full sm:w-96">
         <h3 class="text-2xl font-semibold text-center mb-6 text-white">Login</h3>
-        <form id="loginForm" onsubmit="return validateForm()" method="post" action="login.php">
+        <form id="loginForm" onsubmit="return validateForm()" method="post" action="">
             <div class="mb-4">
                 <label for="username" class="block text-sm font-medium text-gray-400">Username</label>
                 <input type="text" id="username" name="username"
