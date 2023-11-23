@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
@@ -13,7 +14,7 @@
 
     <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full sm:w-96">
         <h3 class="text-2xl font-semibold text-center mb-6 text-white">Login</h3>
-        <form id="loginForm" onsubmit="return validateForm()" method="post" action="">
+        <form id="loginForm" onsubmit="return validateForm()" method="post" action="login.php">
             <div class="mb-4">
                 <label for="username" class="block text-sm font-medium text-gray-400">Username</label>
                 <input type="text" id="username" name="username"
@@ -28,7 +29,6 @@
                 class="w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Login</button>
         </form>
 
-        <!-- Sign Up button -->
         <div class="mt-4">
             <button
                 class="w-full px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600">
@@ -37,7 +37,6 @@
         </div>
     </div>
 
-    <!-- Custom JavaScript -->
     <script>
         function validateForm() {
             var username = document.getElementById('username').value;
