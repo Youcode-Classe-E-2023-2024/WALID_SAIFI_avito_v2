@@ -1,15 +1,13 @@
 <?php
-include 'utilisateur.php'; 
 include 'Database.php'; 
-
+include 'utilisateur.php'; 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
     $userType = $_POST['userType'];
-    $username = htmlspecialchars(trim($username));
-    $password = htmlspecialchars(trim($password));
     $newUser = new User($username, $password, $userType);
+    $newUser->addUserToDatabase();
 }
 ?>
 <!DOCTYPE html>
