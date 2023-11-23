@@ -1,3 +1,17 @@
+<?php
+include 'utilisateur.php'; 
+include 'Database.php'; 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $userType = $_POST['userType'];
+    $username = htmlspecialchars(trim($username));
+    $password = htmlspecialchars(trim($password));
+    $newUser = new User($username, $password, $userType);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +25,7 @@
 
     <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full sm:w-96">
         <h3 class="text-2xl font-semibold text-center mb-6 text-white">Sign Up</h3>
-        <form id="signupForm" onsubmit="return validateForm()" method="post" action="">
+        <form id="signupForm" onsubmit="return validateForm()" method="post" action="SignUp.php">
             <div class="mb-4">
                 <label for="username" class="block text-sm font-medium text-gray-400">Username</label>
                 <input type="text" id="username" name="username"
