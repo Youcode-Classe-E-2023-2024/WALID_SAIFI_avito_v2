@@ -2,7 +2,6 @@
 include 'Database.php'; 
 include 'utilisateur.php'; 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     $username = $_POST['username'];
     $password = $_POST['password'];
     $userType = $_POST['userType'];
@@ -38,8 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="userType" class="block text-sm font-medium text-gray-400">User Type</label>
                 <select id="userType" name="userType"
                     class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500" required>
-                    <option value="0">Utilisateur</option>
-                    <option value="1">Annonceur</option>
+                    <option value="2">Annonceur</option>
+                    <option value="3">Client</option>
                 </select>
             </div>
             <button type="submit"class="w-full px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600">Sign Up</button>
