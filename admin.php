@@ -13,7 +13,7 @@ if(!isset($_SESSION['username'])){
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Navbar Example</title>
+  <title>Admin</title>
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
@@ -28,10 +28,10 @@ if(!isset($_SESSION['username'])){
     <div class="space-x-4">
       <a href="#" class="text-white">Home</a>
       <a href="#" class="text-white">About</a>
-      <a href="#" class="text-white">Contact</a>
+      <a href="#" class="text-white">Ajouter user</a>
       <span class="text-white">Type: <?php  echo $_SESSION['role'];?></span>
       <span class="text-white">Username: <?php echo $_SESSION['username'] ?></span>
-      <a href="deconnexion.php" class="text-2xl font-semibold">Deconnecter</a>
+      <a href="dec.php" class="text-2xl font-semibold">Deconnecter</a>
     </div>
   </div>
 </nav>
