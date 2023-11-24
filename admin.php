@@ -29,6 +29,7 @@ if(!isset($_SESSION['username'])){
       <a href="#" class="text-white">Home</a>
       <a href="#" class="text-white">About</a>
       <a href="#" class="text-white">Contact</a>
+      <span class="text-white">Type: <?php  echo $_SESSION['role'];?></span>
       <span class="text-white">Username: <?php echo $_SESSION['username'] ?></span>
       <a href="deconnexion.php" class="text-2xl font-semibold">Deconnecter</a>
     </div>
