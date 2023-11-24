@@ -8,8 +8,6 @@ if(!isset($_SESSION['username'])){
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +22,9 @@ if(!isset($_SESSION['username'])){
 <!-- Navbar -->
 <nav class="bg-gray-800 p-4">
   <div class="container mx-auto flex justify-between items-center">
-    <a href="#" class="text-2xl font-semibold">Logo</a>
+  <a href="admin.php">
+      <img src="avito-logo.webp" alt="Nom de votre site" class="h-13 w-28">
+    </a>
     <div class="space-x-4">
       <a href="#" class="text-white">Home</a>
       <a href="#" class="text-white">About</a>
