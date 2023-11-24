@@ -20,7 +20,7 @@ if(!isset($_SESSION['username'])){
 <body class="bg-gray-900 text-white">
 
 <!-- Navbar -->
-<nav class="bg-gray-800 p-4">
+<nav class="bg-gray-900 p-5">
   <div class="container mx-auto flex justify-between items-center">
   <a href="admin.php">
       <img src="avito-logo.webp" alt="Nom de votre site" class="h-13 w-28">
@@ -38,7 +38,7 @@ if(!isset($_SESSION['username'])){
 
 <!-- Content -->
 <div class="container mx-auto mt-5">
-  <div class="p-8 bg-gray-800 rounded-lg shadow-lg">
+  <div class="p-8 bg-gray-300 rounded-lg shadow-lg">
     <h1 class="text-2xl font-semibold mb-4">Page Content</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam massa nec tellus venenatis, a volutpat turpis vulputate.</p>
   </div>
