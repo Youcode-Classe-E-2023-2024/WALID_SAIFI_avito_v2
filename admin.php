@@ -17,7 +17,7 @@ if(!isset($_SESSION['username'])){
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-500 text-white">
 
 <!-- Navbar -->
 <nav class="bg-gray-900 p-5">
