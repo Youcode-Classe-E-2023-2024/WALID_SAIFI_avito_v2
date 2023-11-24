@@ -1,3 +1,15 @@
+<?php 
+
+session_start();
+
+if(!isset($_SESSION['username'])){
+	header('location:login.php');
+}else{
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +29,12 @@
       <a href="#" class="text-white">Home</a>
       <a href="#" class="text-white">About</a>
       <a href="#" class="text-white">Contact</a>
+      <span class="text-white">Username: <?php echo $_SESSION['username'] ?></span>
+      <a href="deconnexion.php" class="text-2xl font-semibold">Deconnecter</a>
     </div>
   </div>
 </nav>
+
 
 <!-- Content -->
 <div class="container mx-auto mt-5">
@@ -31,3 +46,4 @@
 
 </body>
 </html>
+<?php  } ?>
