@@ -5,12 +5,16 @@ class User
     public $username;
     public $password;
     public $id_role;
+    public $nom;
+    public $prenom;
 
-    public function __construct($username, $password, $id_role)
+    public function __construct( $username, $password, $id_role, $nom, $prenom)
     {
         $this->username = $username;
         $this->password = $password;
         $this->id_role = $id_role;
+        $this->nom = $nom;
+        $this->prenom = $prenom;
     }
 
     public function getUsername()
@@ -49,9 +53,9 @@ public function addUserToDatabase()
 {
     $db = new Database();
     $conn = $db->getConnection();
-    $sql = "INSERT INTO users (username, password, id_role) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO users (username, password, id_role,nom,prenom) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssi", $this->username, $this->password, $this->id_role);
+    $stmt->bind_param("ssiss", $this->username, $this->password, $this->id_role,$this->nom,$this->prenom);
 
     if ($stmt->execute()) {
         // User added successfully
