@@ -21,6 +21,8 @@ CREATE TABLE users (
     username VARCHAR(255) ,
     password VARCHAR(255) ,
     id_role INT ,
+    nom VARCHAR(70),
+    prenom VARCHAR(80),
     FOREIGN KEY (id_role) REFERENCES roles(id_role)
 );
 
@@ -38,3 +40,6 @@ INSERT INTO users (username, password, id_role) VALUES ('c@2013', '234', 3);
 SELECT users.user_id, users.username, users.password, roles.role
 FROM users JOIN roles ON 
 users.id_role = roles.id_role;
+ALTER TABLE users
+ADD COLUMN nom VARCHAR(255),
+ADD COLUMN prenom VARCHAR(255);

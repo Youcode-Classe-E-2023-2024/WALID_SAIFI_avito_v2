@@ -1,5 +1,4 @@
 <?php
-
 class User
 {
     public $username;
@@ -67,7 +66,8 @@ public function addUserToDatabase()
         return false;
     }
 }
-
 }
+
+
 
 ?>
