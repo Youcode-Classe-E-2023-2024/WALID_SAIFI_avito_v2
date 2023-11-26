@@ -26,7 +26,7 @@ if ($result) {
             <div class="text-center mb-6">
                 <h2 class="text-2xl font-semibold">Modifier une Annonce</h2>
             </div>
-            <form class="max-w-md mx-auto" id="form" method="post" action="update.php">
+            <form class="max-w-md mx-auto" id="form" method="post" action="modifier_user.php">
                 <input type="hidden" name="id" value="<?php echo $row['id_annonce'] ?>">
                 <div class="mb-4">
                     <label for="titre" class="block text-sm font-medium text-gray-600">Titre de l'Annonce</label>

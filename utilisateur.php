@@ -66,7 +66,9 @@ public function addUserToDatabase()
         return false;
     }
 }
+
 }
+
 
 
 
