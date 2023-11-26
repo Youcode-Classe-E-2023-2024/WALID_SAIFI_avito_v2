@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body class="bg-gray-900 flex items-center justify-center h-screen">
 
     <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full sm:w-96">
-        <h3 class="text-2xl font-semibold text-center mb-6 text-white">Ajouter Admin ou annonseur</h3>
+        <h3 class="text-2xl font-semibold text-center mb-6 text-white">Ajouter Admin </h3>
         <form id="signupForm" method="post" action="ajouter_Admin.php">
              <div class="mb-4">
                     <label for="username" class="block text-sm font-medium text-gray-400">Username</label>
