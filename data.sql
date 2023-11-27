@@ -40,6 +40,9 @@ INSERT INTO users (username, password, id_role) VALUES ('c@2013', '234', 3);
 SELECT users.user_id, users.username, users.password, roles.role
 FROM users JOIN roles ON 
 users.id_role = roles.id_role;
+
+
+
 ALTER TABLE users
 ADD COLUMN nom VARCHAR(255),
 ADD COLUMN prenom VARCHAR(255);

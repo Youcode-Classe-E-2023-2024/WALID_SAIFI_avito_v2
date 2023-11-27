@@ -3,7 +3,7 @@ session_start();
 
 if(!isset($_SESSION['username'])){
   header('location:login.php');
-}else{
+}else{ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
