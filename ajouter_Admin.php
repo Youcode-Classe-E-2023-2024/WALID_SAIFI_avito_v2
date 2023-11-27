@@ -4,12 +4,9 @@ include 'utilisateur.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
-
     $newUser = new User($username, $password, 1,$nom,$prenom);
-    
     $newUser->addUserToDatabase();
     header('location:admin.php');
 }
