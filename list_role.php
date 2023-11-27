@@ -41,7 +41,7 @@
               echo "<td class='py-2 px-4 border-b text-gray-700'>" . $row["role"] . "</td>";
               echo "<td class='py-2 px-4 border-b'>";
               echo "<a href='modifier_role.php?id=" . $row["id_role"] . "' class='bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded mx-1'>Éditer</a>";
-              echo "<a href='supprimer_role.php?id=" . $row["id_role"] . "' class='bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded mx-1'>Supprimer</a>";
+              echo "<a href='supprime_role.php?id=" . $row["id_role"] . "' class='bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded mx-1'>Supprimer</a>";
               echo "</td>";
               echo "</tr>";
             }

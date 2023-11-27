@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO roles (role) VALUES ('$role')"; 
     $con = new Database();
     $con->getConnection()->query($sql);
-    header("location:admin.php")
+    header('location:list_role.php');
 }
 
 ?>
