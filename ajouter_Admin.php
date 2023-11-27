@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newUser = new User($username, $password, 1,$nom,$prenom);
     
     $newUser->addUserToDatabase();
+    header('location:admin.php');
 }
 ?>
 <!DOCTYPE html>
