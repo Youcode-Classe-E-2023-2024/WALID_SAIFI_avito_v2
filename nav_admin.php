@@ -10,11 +10,11 @@
         </svg>
         Liste Role
       </a>
-      <a href="list_admin.php" class="text-white flex items-center hover:text-gray-300">
+      <a href="list_user.php" class="text-white flex items-center hover:text-gray-300">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
           <!-- Icône pour "Afficher Admin" -->
         </svg>
-        Afficher Admin
+        Afficher les Utilisateur
       </a>
       <a href="ajouter_Admin.php" class="text-white flex items-center hover:text-gray-300">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">

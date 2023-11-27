@@ -16,7 +16,7 @@
  ?>
 <!-- Content -->
 <div class="content flex flex-col items-center">
-  <h2 class="text-2xl font-semibold mb-4">Liste des Admin</h2>
+  <h2 class="text-2xl font-semibold mb-4">Liste des user</h2>
 
   <div class="overflow-x-auto w-full">
     <table class="w-full bg-white border border-gray-300">
@@ -26,7 +26,6 @@
           <th class="py-2 px-4 border-b text-white bg-gray-800">Nom</th>
           <th class="py-2 px-4 border-b text-white bg-gray-800">Prénom</th>
           <th class="py-2 px-4 border-b text-white bg-gray-800">Username</th>
-          <th class="py-2 px-4 border-b text-white bg-gray-800">Password</th>
           <th class="py-2 px-4 border-b text-white bg-gray-800">Actions</th>
         </tr>
       </thead>
@@ -38,7 +37,7 @@
             $db = new Database();
             $conn = $db->getConnection();
             // Requête SQL pour sélectionner tous les utilisateurs
-            $selectSql = "SELECT * FROM users WHERE id_role = 1";
+            $selectSql = "SELECT * FROM users ";
             // Exécution de la requête SQL
             $result = $conn->query($selectSql);
             // Vérification si des utilisateurs ont été trouvés
@@ -50,10 +49,9 @@
                     echo "<td class='py-2 px-4 border-b text-gray-700'>" . $row["nom"] . "</td>";
                     echo "<td class='py-2 px-4 border-b text-gray-700'>" . $row["prenom"] . "</td>";
                     echo "<td class='py-2 px-4 border-b text-gray-700'>" . $row["username"] . "</td>";
-                    echo "<td class='py-2 px-4 border-b text-gray-700'>" . $row["password"] . "</td>";
                     echo "<td class='py-2 px-4 border-b'>";
-                    echo "<button class='bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded'>Éditer</button>";
-                    echo "<button class='bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded'>Supprimer</button>";
+                    echo "<a href='modifier_user.php?id=" . $row["user_id"] . "'><button class='bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded'>Éditer</button>";
+                    echo " <a href='delet_user.php?id=" . $row["user_id"]. "'> <button class='bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded'>Supprimer</button>";
                     echo "</td>";
                     echo "</tr>";
                 }
