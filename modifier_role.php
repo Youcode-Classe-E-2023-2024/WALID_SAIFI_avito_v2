@@ -5,6 +5,8 @@ $id = $_GET['id'];
 $sql = "SELECT *  FROM roles WHERE id_role = $id"; 
 $result = $conn->getConnection()->query($sql);
 $row = $result->fetch_assoc();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,11 +23,11 @@ $row = $result->fetch_assoc();
             <div class="text-center mb-6">
                 <h2 class="text-2xl font-semibold">Modifier Role</h2>
             </div>
-            <form class="max-w-md mx-auto" id="form" method="post" action="">
-                <input type="hidden" name="id" value="<?php echo $row['id_role'] ?>">
+            <form class="max-w-md mx-auto" id="form" method="post" action="update_role.php">
+                <input type="hidden" name="id_role" value="<?php echo $row['id_role'] ?>">
                 <div class="mb-4">
                     <label for="username" class="block text-sm font-medium text-gray-600">username</label>
-                    <input type="text" id="username" name="username" value="<?php echo $row['role'] ?>"
+                    <input type="text" id="" name="role" value="<?php echo $row['role'] ?>"
                         class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
                 </div>
                 <button type="submit"
