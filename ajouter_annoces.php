@@ -1,3 +1,11 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION['username']) || $_SESSION['role']!='annonceur'){
+  header('location:login.php');
+}else{
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,3 +60,4 @@
     </div>
 </body>
 </html>
+<?php } ?>
