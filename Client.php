@@ -21,7 +21,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role']!='client'){
 <!-- Navbar -->
 <nav class="bg-red-500 p-5">
   <div class="container mx-auto flex justify-between items-center">
-    <a href="annonseur.php">
+    <a href="Client.php">
       <img src="avito-logo.webp" alt="Nom de votre site" class="h-13 w-28">
     </a>
     <div class="space-x-4">
