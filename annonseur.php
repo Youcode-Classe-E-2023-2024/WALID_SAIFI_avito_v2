@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-if(!isset($_SESSION['username']) && $_SESSION['role']!='annonceur'){
+if(!isset($_SESSION['username']) || $_SESSION['role']!='annonceur'){
   header('location:login.php');
 }else{
 ?>
@@ -100,7 +100,7 @@ tbody tr:nth-child(even) {
 <!-- Navbar -->
 <nav class="bg-red-500 p-5">
   <div class="container mx-auto flex justify-between items-center">
-    <a href="admin.php">
+    <a href="annonseur.php">
       <img src="avito-logo.webp" alt="Nom de votre site" class="h-13 w-28">
     </a>
     <div class="space-x-4">
