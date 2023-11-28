@@ -20,14 +20,28 @@ $row = $result->fetch_assoc();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="stylesheet" href="style.css"> <!-- You can add your custom styles here -->
     <title>Modifier Annonce</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f3f4f6; /* Ajout d'une couleur de fond */
+        }
+
+        .cont_ajout {
+            width: 100%;
+            max-width: 480px; /* Ajustez la largeur maximale selon vos besoins */
+        }
+    </style>
 </head>
 
-<body class="bg-gray-200">
-    <div class="cont_ajout min-h-screen flex items-center justify-center">
-        <div class="container bg-white p-8 shadow-md rounded-md">
-            <div class="header mb-8">
-                <h2 class="text-2xl font-bold">Modifier une Annonce</h2>
-            </div>
+<body>
+    <div class="cont_ajout bg-white p-8 shadow-md rounded-md">
+        <div class="header mb-8">
+            <h2 class="text-2xl font-bold">Modifier une Annonce</h2>
+        </div>
             <form class="form" id="form" method="post" action="update_annonces.php">
                 <input type="hidden" name="id" value="<?php echo $row['id_annonce'] ?>">
                 <div class="mb-4">
