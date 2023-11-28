@@ -1,3 +1,11 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION['username'])){
+  header('location:login.php');
+}else{
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +31,7 @@
                 </div>
                 <div class="flex flex-col">
                     <label for="prix" class="text-sm font-semibold">Prix:</label>
-                    <input type="text" id="prix" namae="prix" class="border p-2 rounded-md">
+                    <input type="text" id="prix" name="prix" class="border p-2 rounded-md">
                 </div>
                 <div class="flex flex-col">
                     <label for="telephone" class="text-sm font-semibold">Telephone:</label>
@@ -39,3 +47,4 @@
     </div>
 </body>
 </html>
+<?php } ?>
