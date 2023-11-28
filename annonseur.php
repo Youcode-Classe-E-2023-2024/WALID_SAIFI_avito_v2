@@ -104,6 +104,7 @@ tbody tr:nth-child(even) {
       <img src="avito-logo.webp" alt="Nom de votre site" class="h-13 w-28">
     </a>
     <div class="space-x-4">
+    <a href="ajouter_annoces.php" class="text-white">Ajouter annonces</a>
       <a href="#" class="text-white">Home</a>
       <a href="#" class="text-white">About</a>
       <a href="#" class="text-white">Ajouter user</a>
@@ -138,37 +139,45 @@ tbody tr:nth-child(even) {
     // Connexion à la base de données
     $db = new Database();
     $conn = $db->getConnection();
+
     // Requête SQL pour sélectionner toutes les annonces
-    $selectSql = "SELECT *
-    FROM annonces
+    $selectSql = "SELECT * FROM annonces
     JOIN users ON annonces.id_user = users.user_id
     JOIN roles ON users.id_role = roles.id_role;";
-    // Exécution de la requête SQL
+
+    // Exécution de la requête SQL avec gestion des erreurs
     $result = $conn->query($selectSql);
+
+    if (!$result) {
+        die("Erreur d'exécution de la requête: " . $conn->error);
+    }
 
     if ($result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
         echo "<tr class='hover:bg-gray-100'>";
-        echo "<td class='py-3 px-6 border-b text-black'>". $row["id_annonce"] . "</td>";
-        echo "<td class='py-3 px-6 border-b text-black'>" . $row["titre"] . "</td>";
-        echo "<td class='py-3 px-6 border-b text-black'>" . $row["description"] . "</td>";
-        echo "<td class='py-3 px-6 border-b text-black'>" . $row["prix"] . "</td>";
-        echo "<td class='py-3 px-6 border-b text-black'>" . $row["telephone"] . "</td>";
-        echo "<td class='py-3 px-6 border-b text-black'>" . $row["email"] . "</td>";
-        echo "<td class='py-3 px-6 border-b text-black'>" . $row["role"] . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>" . htmlspecialchars($row["id_annonce"]) . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>" . htmlspecialchars($row["titre"]) . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>" . htmlspecialchars($row["description"]) . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>" . htmlspecialchars($row["prix"]) . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>" . htmlspecialchars($row["telephone"]) . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>" . htmlspecialchars($row["email"]) . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>" . htmlspecialchars($row["role"]) . "</td>";
         echo "<td class='py-3 px-6 border-b text-black'>";
-        echo "<a href='modifier_user.php?id=" . $row["id_annonce"] . "' class='bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded mr-2'>Modifier</a>";
-        echo "<a href='supprimer.php?id=" . $row["id_annonce"] . "' class='bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded'>Supprimer</a>";
+        echo "<a href='modifier_user.php?id=" . htmlspecialchars($row["id_annonce"]) . "' class='bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded mr-2'>Modifier</a>";
+        echo "<a href='supprimer.php?id=" . htmlspecialchars($row["id_annonce"]) . "' class='bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded'>Supprimer</a>";
         echo "</td>";
         echo "</tr>";
       }
     } else {
       echo "<tr><td colspan='8' class='py-3 px-6 border-b'>Aucune annonce trouvée</td></tr>";
     }
+    
+    // Fermeture de la connexion
     $conn->close();
     ?>
   </tbody>
 </table>
+
 
 
   </div>
