@@ -28,7 +28,7 @@ $row = $result->fetch_assoc();
             <div class="header mb-8">
                 <h2 class="text-2xl font-bold">Modifier une Annonce</h2>
             </div>
-            <form class="form" id="form" method="post" action="update.php">
+            <form class="form" id="form" method="post" action="update_annonces.php">
                 <input type="hidden" name="id" value="<?php echo $row['id_annonce'] ?>">
                 <div class="mb-4">
                     <label for="titre" class="block text-sm font-medium text-gray-600">Titre de l'Annonce</label>
