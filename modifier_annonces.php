@@ -1,50 +1,61 @@
-<?php
-include_once "creation.php";
 
+<?php
+require_once "Database.php"; 
+$conn = new Database();
 $id = $_GET['id'];
-$sql  = "SELECT * FROM annonces WHERE id = $id"; 
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
+$sql = "SELECT *  FROM  annonces  WHERE id_annonce = $id"; 
+$result = $conn->getConnection()->query($sql);
+$row = $result->fetch_assoc();
+
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Modifier Annonce</title> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- You can add your custom styles here -->
+    <title>Modifier Annonce</title>
 </head>
-<body>
-    <div class="cont_ajout">
-        <div class="container">
-            <div class="header">
-                <h2>Modifier une Annonce</h2> 
+
+<body class="bg-gray-200">
+    <div class="cont_ajout min-h-screen flex items-center justify-center">
+        <div class="container bg-white p-8 shadow-md rounded-md">
+            <div class="header mb-8">
+                <h2 class="text-2xl font-bold">Modifier une Annonce</h2>
             </div>
             <form class="form" id="form" method="post" action="update.php">
-                <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                <div class="form-control">
-                    <label for="titre">Titre de l'Annonce</label>
-                    <input type="text" id="titre" name="titre" value="<?php echo $row['titre'] ?>">
+                <input type="hidden" name="id" value="<?php echo $row['id_annonce'] ?>">
+                <div class="mb-4">
+                    <label for="titre" class="block text-sm font-medium text-gray-600">Titre de l'Annonce</label>
+                    <input type="text" id="titre" name="titre" value="<?php echo $row['titre'] ?>" class="mt-1 p-2 border rounded-md w-full">
                 </div>
-                <div class="form-control">
-                    <label for="description">Description du produit/service :</label>
-                    <input type="text" id="description" name="description" value="<?php echo $row['Description'] ?>">
+                <div class="mb-4">
+                    <label for="description" class="block text-sm font-medium text-gray-600">Description du produit/service :</label>
+                    <input type="text" id="description" name="description" value="<?php echo $row['description'] ?>" class="mt-1 p-2 border rounded-md w-full">
                 </div>
-                <div class="form-control">
-                    <label for="prix">Prix:</label>
-                    <input type="text" id="prix" name="prix" value="<?php echo $row['prix'] ?>">
+                <div class="mb-4">
+                    <label for="prix" class="block text-sm font-medium text-gray-600">Prix:</label>
+                    <input type="text" id="prix" name="prix" value="<?php echo $row['prix'] ?>" class="mt-1 p-2 border rounded-md w-full">
                 </div>
-                <div class="form-control">
-                    <label for="telephone">Telephone:</label>
-                    <input type="text" id="telephone" name="telephone" value="<?php echo $row['telephone'] ?>">
+                <div class="mb-4">
+                    <label for="telephone" class="block text-sm font-medium text-gray-600">Telephone:</label>
+                    <input type="text" id="telephone" name="telephone" value="<?php echo $row['telephone'] ?>" class="mt-1 p-2 border rounded-md w-full">
                 </div>
-                <div class="form-control">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="<?php echo $row['email'] ?>">
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-600">Email:</label>
+                    <input type="email" id="email" name="email" value="<?php echo $row['email'] ?>" class="mt-1 p-2 border rounded-md w-full">
                 </div>
-                <button type="submit"> <i class="fas fa-user-plus"></i> Modifier</button> 
+                <button type="submit"
+                    class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-md"> <i
+                        class="fas fa-user-plus"></i> Modifier</button>
             </form>
         </div>
     </div>
 </body>
+
 </html>

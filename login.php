@@ -27,8 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 case 'admin':
                     header("Location: admin.php");
                     break;
-                case 'advertiser':
-                    header("Location: advertiser.php");
+                case 'annonceur':
+                    header("Location: annonseur.php");
                     break;
                 case 'client':
                     header("Location: client.php");
