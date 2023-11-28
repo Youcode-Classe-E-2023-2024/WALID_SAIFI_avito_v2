@@ -1,11 +1,3 @@
-<?php 
-session_start();
-
-if(!isset($_SESSION['username'])  && $_SESSION['role']!='annonceur'){
-  header('location:login.php');
-}else{
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +7,19 @@ if(!isset($_SESSION['username'])  && $_SESSION['role']!='annonceur'){
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Ajouter Annonce</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 400px; /* Adjust the width as needed */
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto p-8">
@@ -47,4 +52,3 @@ if(!isset($_SESSION['username'])  && $_SESSION['role']!='annonceur'){
     </div>
 </body>
 </html>
-<?php } ?>
