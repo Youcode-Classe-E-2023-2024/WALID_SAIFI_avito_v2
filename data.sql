@@ -46,3 +46,7 @@ users.id_role = roles.id_role;
 ALTER TABLE users
 ADD COLUMN nom VARCHAR(255),
 ADD COLUMN prenom VARCHAR(255);
+
+ALTER TABLE users
+ADD CONSTRAINT nom_de_la_cle_etrangere
+FOREIGN KEY (id_role) REFERENCES roles(id_role) ON DELETE CASCADE;
