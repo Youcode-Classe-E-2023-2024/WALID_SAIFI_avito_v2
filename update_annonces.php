@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "UPDATE annonces SET titre='$titre', description='$description', prix=$prix, telephone='$telephone', email='$email' WHERE id_annonce=$id";
     $con->getConnection()->query($sql);
-
     header("Location: annonseur.php");
 }
 
