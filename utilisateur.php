@@ -57,16 +57,13 @@ public function addUserToDatabase()
     $stmt->bind_param("ssiss", $this->username, $this->password, $this->id_role,$this->nom,$this->prenom);
 
     if ($stmt->execute()) {
-        // User added successfully
         $conn->close();
         return true;
     } else {
-        // Error occurred while adding user
         $conn->close();
         return false;
-    }
-}
-
+      }
+   }
 }
 
 
