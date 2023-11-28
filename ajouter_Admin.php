@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header('location:admin.php');
 }
 session_start();
-if(!isset($_SESSION['username'])){
+if(!isset($_SESSION['username']) ||  $_SESSION['role']!='admin'){
   header('location:login.php');
 }else{ 
 ?>
