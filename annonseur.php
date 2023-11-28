@@ -164,7 +164,7 @@ tbody tr:nth-child(even) {
         echo "<td class='py-3 px-6 border-b text-black'>" . htmlspecialchars($row["role"]) . "</td>";
         echo "<td class='py-3 px-6 border-b text-black'>";
         echo "<a href='modifier_annonces.php?id=" . htmlspecialchars($row["id_annonce"]) . "' class='bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded mr-2'>Modifier</a>";
-        echo "<a href='supprimer.php?id=" . htmlspecialchars($row["id_annonce"]) . "' class='bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded'>Supprimer</a>";
+        echo "<a href='supprime_annones.php?id=" . htmlspecialchars($row["id_annonce"]) . "' class='bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded'>Supprimer</a>";
         echo "</td>";
         echo "</tr>";
       }
