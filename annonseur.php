@@ -105,9 +105,7 @@ tbody tr:nth-child(even) {
     </a>
     <div class="space-x-4">
     <a href="ajouter_annoces.php" class="text-white">Ajouter annonces</a>
-      <a href="#" class="text-white">Home</a>
-      <a href="#" class="text-white">About</a>
-      <a href="#" class="text-white">Ajouter user</a>
+      <a href="annonseur.php" class="text-white">Home</a>
       <span class="text-white">Type: <?php echo isset($_SESSION['role']) ? $_SESSION['role'] : ''; ?></span>
       <span class="text-white">Username: <?php echo $_SESSION['username'] ?></span>
       <a href="dec.php" class="text-2xl font-semibold">Deconnecter</a>
