@@ -119,38 +119,62 @@ tbody tr:nth-child(even) {
   <h2 class="text-2xl font-semibold mb-4">Liste des Annonces</h2>
 
   <div class="overflow-x-auto w-full">
-    <table class="w-full bg-white border border-gray-300">
-      <thead>
-        <tr>
-          <th class="py-2 px-4 border-b text-white bg-gray-800">ID</th>
-          <th class="py-2 px-4 border-b text-white bg-gray-800">Titre</th>
-          <th class="py-2 px-4 border-b text-white bg-gray-800">Description</th>
-          <th class="py-2 px-4 border-b text-white bg-gray-800">Prix</th>
-          <th class="py-2 px-4 border-b text-white bg-gray-800">Téléphone</th>
-          <th class="py-2 px-4 border-b text-white bg-gray-800">Email</th>
-          <th class="py-2 px-4 border-b text-white bg-gray-800">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Ajoutez vos lignes de données ici -->
-        <tr>
-          <td class="py-2 px-4 border-b text-gray-700">1</td>
-          <td class="py-2 px-4 border-b text-gray-700">Titre de l'annonce</td>
-          <td class="py-2 px-4 border-b text-gray-700">Description de l'annonce</td>
-          <td class="py-2 px-4 border-b text-gray-700">1000€</td>
-          <td class="py-2 px-4 border-b text-gray-700">123456789</td>
-          <td class="py-2 px-4 border-b text-gray-700">exemple@email.com</td>
-          <td class="py-2 px-4 border-b">
-            <!-- Ajoutez vos actions (boutons d'édition, de suppression, etc.) ici -->
-            <button class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded">Éditer</button>
-            <button class="bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded">Supprimer</button>
-          </td>
-        </tr>
-        <!-- Ajoutez d'autres lignes selon vos données -->
-      </tbody>
-    </table>
+  <table class="w-full bg-white border border-gray-300">
+  <thead>
+    <tr>
+      <th class="py-3 px-6 bg-gray-800 text-white">ID</th>
+      <th class="py-3 px-6 bg-gray-800 text-white">Titre</th>
+      <th class="py-3 px-6 bg-gray-800 text-white">Description</th>
+      <th class="py-3 px-6 bg-gray-800 text-white">Prix</th>
+      <th class="py-3 px-6 bg-gray-800 text-white">Téléphone</th>
+      <th class="py-3 px-6 bg-gray-800 text-white">Email</th>
+      <th class="py-3 px-6 bg-gray-800 text-white">Role</th>
+      <th class="py-3 px-6 bg-gray-800 text-white">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+    require_once("Database.php");
+    // Connexion à la base de données
+    $db = new Database();
+    $conn = $db->getConnection();
+    // Requête SQL pour sélectionner toutes les annonces
+    $selectSql = "SELECT *
+    FROM annonces
+    JOIN users ON annonces.id_user = users.user_id
+    JOIN roles ON users.id_role = roles.id_role;";
+    // Exécution de la requête SQL
+    $result = $conn->query($selectSql);
+
+    if ($result->num_rows > 0) {
+      while ($row = $result->fetch_assoc()) {
+        echo "<tr class='hover:bg-gray-100'>";
+        echo "<td class='py-3 px-6 border-b text-black'>". $row["id_annonce"] . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>" . $row["titre"] . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>" . $row["description"] . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>" . $row["prix"] . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>" . $row["telephone"] . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>" . $row["email"] . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>" . $row["role"] . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>";
+        echo "<a href='modifier_user.php?id=" . $row["id_annonce"] . "' class='bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded mr-2'>Modifier</a>";
+        echo "<a href='supprimer.php?id=" . $row["id_annonce"] . "' class='bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded'>Supprimer</a>";
+        echo "</td>";
+        echo "</tr>";
+      }
+    } else {
+      echo "<tr><td colspan='8' class='py-3 px-6 border-b'>Aucune annonce trouvée</td></tr>";
+    }
+    $conn->close();
+    ?>
+  </tbody>
+</table>
+
+
   </div>
 </div>
+
+
 
 
        

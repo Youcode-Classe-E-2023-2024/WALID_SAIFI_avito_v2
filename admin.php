@@ -34,7 +34,7 @@ if(!isset($_SESSION['username'])){
       <th class="py-3 px-6 bg-gray-800 text-white">Prix</th>
       <th class="py-3 px-6 bg-gray-800 text-white">Téléphone</th>
       <th class="py-3 px-6 bg-gray-800 text-white">Email</th>
-      <th class="py-3 px-6 bg-gray-800 text-white">ID Utilisateur</th>
+      <th class="py-3 px-6 bg-gray-800 text-white">Role</th>
       <th class="py-3 px-6 bg-gray-800 text-white">Actions</th>
     </tr>
   </thead>
@@ -45,7 +45,10 @@ if(!isset($_SESSION['username'])){
     $db = new Database();
     $conn = $db->getConnection();
     // Requête SQL pour sélectionner toutes les annonces
-    $selectSql = "SELECT * FROM annonces";
+    $selectSql = "SELECT *
+    FROM annonces
+    JOIN users ON annonces.id_user = users.user_id
+    JOIN roles ON users.id_role = roles.id_role;";
     // Exécution de la requête SQL
     $result = $conn->query($selectSql);
 
@@ -58,7 +61,7 @@ if(!isset($_SESSION['username'])){
         echo "<td class='py-3 px-6 border-b text-black'>" . $row["prix"] . "</td>";
         echo "<td class='py-3 px-6 border-b text-black'>" . $row["telephone"] . "</td>";
         echo "<td class='py-3 px-6 border-b text-black'>" . $row["email"] . "</td>";
-        echo "<td class='py-3 px-6 border-b text-black'>" . $row["id_user"] . "</td>";
+        echo "<td class='py-3 px-6 border-b text-black'>" . $row["role"] . "</td>";
         echo "<td class='py-3 px-6 border-b text-black'>";
         echo "<a href='modifier_user.php?id=" . $row["id_annonce"] . "' class='bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded mr-2'>Modifier</a>";
         echo "<a href='supprimer.php?id=" . $row["id_annonce"] . "' class='bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded'>Supprimer</a>";
