@@ -31,6 +31,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role']!='admin'){
           <th class="py-2 px-4 border-b text-white bg-gray-800">Nom</th>
           <th class="py-2 px-4 border-b text-white bg-gray-800">Prénom</th>
           <th class="py-2 px-4 border-b text-white bg-gray-800">Username</th>
+          <th class="py-2 px-4 border-b text-white bg-gray-800">Role</th>
           <th class="py-2 px-4 border-b text-white bg-gray-800">Actions</th>
         </tr>
       </thead>
@@ -42,18 +43,20 @@ if(!isset($_SESSION['username']) || $_SESSION['role']!='admin'){
             $db = new Database();
             $conn = $db->getConnection();
             // Requête SQL pour sélectionner tous les utilisateurs
-            $selectSql = "SELECT * FROM users ";
+            $selectSql = "SELECT * FROM users 
+              JOIN roles ON users.id_role = roles.id_role";
+
             // Exécution de la requête SQL
             $result = $conn->query($selectSql);
             // Vérification si des utilisateurs ont été trouvés
             if ($result->num_rows > 0) {
-                // Parcourir les résultats de la requête et afficher chaque utilisateur dans une ligne de tableau HTML
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td class='py-2 px-4 border-b text-gray-700'>" . $row["user_id"] . "</td>";
                     echo "<td class='py-2 px-4 border-b text-gray-700'>" . $row["nom"] . "</td>";
                     echo "<td class='py-2 px-4 border-b text-gray-700'>" . $row["prenom"] . "</td>";
                     echo "<td class='py-2 px-4 border-b text-gray-700'>" . $row["username"] . "</td>";
+                    echo "<td class='py-2 px-4 border-b text-gray-700'>" . $row["role"] . "</td>";
                     echo "<td class='py-2 px-4 border-b'>";
                     echo "<a href='modifier_user.php?id=" . $row["user_id"] . "'><button class='bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded'>Éditer</button>";
                     echo " <a href='delet_user.php?id=" . $row["user_id"]. "'> <button class='bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded'>Supprimer</button>";
