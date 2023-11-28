@@ -23,7 +23,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role']!='admin'){
 <div class="content flex flex-col items-center">
   <h2 class="text-2xl font-semibold mb-4">Liste des user</h2>
 
-  <div class="overflow-x-auto w-full">
+  <div class="overflow-x-auto w-max">
     <table class="w-full bg-white border border-gray-300">
       <thead>
         <tr>
