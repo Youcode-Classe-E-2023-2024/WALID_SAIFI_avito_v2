@@ -10,6 +10,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newUser->addUserToDatabase();
     header('location:admin.php');
 }
+session_start();
+if(!isset($_SESSION['username'])){
+  header('location:login.php');
+}else{ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,3 +60,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+<?php } ?>
