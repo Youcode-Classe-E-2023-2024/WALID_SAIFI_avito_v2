@@ -2,7 +2,7 @@
 require_once "Database.php"; 
 $conn = new Database();
 $id = $_GET['id'];
-$sql = "SELECT * FROM users WHERE user_id = $id"; // Use the correct table name and column names
+$sql = "SELECT * FROM users JOIN roles ON  users.id_role = roles.id_role where user_id = $id"; 
 $result = $conn->getConnection()->query($sql);
 if ($result) {
     $row = $result->fetch_assoc();
@@ -42,6 +42,15 @@ if ($result) {
                     <input type="text" id="username" name="id_role" value="<?php echo $row['id_role'] ?>"
                         class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
                 </div>
+                <div class="mb-4">
+                  <label for="role" class="block text-sm font-medium text-gray-600">Role</label>
+                  <select id="role" name="role" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500">
+                  <option value="client" >Client</option>
+                  <option value="annonceur" >Annonceur</option>
+                  <option value="admin" >Admin</option>
+              </select>
+</div>
+
                 <div class="mb-4">
                     <label for="username" class="block text-sm font-medium text-gray-600">Nom</label>
                     <input type="text" id="username" name="nom" value="<?php echo $row['nom'] ?>"
