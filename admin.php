@@ -64,7 +64,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role']!='admin'){
         echo "<td class='py-3 px-6 border-b text-black'>" . $row["role"] . "</td>";
         echo "<td class='py-3 px-6 border-b text-black'>";
         echo "<a href='modifier_annonces.php?id=" . $row["id_annonce"] . "' class='bg-green-500 hover:bg-green-700 text-white py-1 px-2 rounded mr-2'>Modifier</a>";
-        echo "<a href='supprimer.php?id=" . $row["id_annonce"] . "' class='bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded'>Supprimer</a>";
+        echo "<a href='supprime_annones.php?id=" . $row["id_annonce"] . "' class='bg-red-500 hover:bg-red-700 text-white py-1 px-2 rounded'>Supprimer</a>";
         echo "</td>";
         echo "</tr>";
       }
